@@ -4,6 +4,8 @@ import { FiLogIn } from "react-icons/fi";
 
 import "./Header.css";
 
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <>
@@ -25,7 +27,8 @@ function Header() {
         </div>
         <div className="header__login">
         <FiLogIn color="black" size="1.5em" />
-          <h3>Zaloguj się</h3>
+          <Link to="/signup"><h3 style={{paddingRight: "15px"}}>Zaloguj sie</h3></Link>
+          <Link to="/signin"><h3>Zarejestruj sie</h3></Link>
           
         </div>
       </header>
