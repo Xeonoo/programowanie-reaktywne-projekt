@@ -1,18 +1,51 @@
-import React from "react";
-import "./LogIn.css";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+
+import './LogIn.css';
 
 function LogIn() {
-  return (
-    <div className="container">
-    <form className="form">
-    <input type="text" value="login" name="login"/>
-    <input type="password" value="" name="password"/>
-    <button>Login</button>
-    </form>
-    <Link to="/"><h3>Home</h3></Link>
-    </div>
-  );
+    const [details, setDetails] = useState({login:"", password:""});
+    const [error, setError] = useState("");
+
+    const navigate = useNavigate();
+
+    const submitHandler = e => {
+        e.preventDefault();
+        axios.post('https://at.usermd.net/api/user/auth', {
+            login: details.login,
+            password: details.password
+        })
+        .then((response) => {
+            localStorage.setItem("token", response.data.token);
+            console.log(response.data.token)
+            navigate("/");
+            window.location.reload();
+        })
+        .catch((error) => {
+            setError("Błąd");
+        });
+    }
+    return(
+        <div className="LoginForm">
+            <form onSubmit={submitHandler}>
+                <div className="form-inner">
+                    <h2>Login</h2>
+                    {(error !== "") ? (<div>{error}</div>) : ""}
+                    <div className="form-group">
+                        <label htmlFor="login">Login:</label>
+                        <input type="text" name="login" id="login" onChange={e=>setDetails({...details, login: e.target.value})} value={details.login}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password">Password:</label>
+                        <input type="password" name="password" id="password" onChange={e=>setDetails({...details, password: e.target.value})} value={details.password}/>
+                    </div>
+                    <input type="submit" value="LOGIN"/>
+                    <Link to="/signup" className="nav-link"> signup</Link>
+                </div>
+            </form>
+        </div>
+    );
 }
 
 export default LogIn;

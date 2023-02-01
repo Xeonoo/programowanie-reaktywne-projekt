@@ -1,36 +1,29 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./Content.css";
 
-function Content() {
+function Content({movie}) {
   return (
     <div className="content">
+      <Link to={`/details/${movie.id}`}>
     <div className="part_content">
       <div className="content__img">
         <img
-          src="./image/tron.png"
-          alt="Gra o tron"
+          src={
+            movie.image
+          }
+          alt={
+            movie.title
+          }
         />
       </div>
       <div className="content__description">
-        <h1>Gra o tron</h1>
-        <h4>
-        Game of Thrones <span>2010</span>
-        </h4>
-        <div className="content__rating">
-          <h2>8,8</h2>
-          <p>370 023</p>
-        </div>
-        <div className="content__description__below">
-          <p>
-            Gatunek <span>Dramat</span>
-          </p>
-          <p>
-            Twórca <span>David Benioff</span>
-          </p>
-        </div>
+        <h1>{movie.title}</h1> 
       </div>
     </div>
+    </Link>
   </div>
     
   );
