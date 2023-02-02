@@ -6,7 +6,7 @@
         width: 100%;
     }
 
-    .header__logo{
+    .header .header__logo{
         height: 50px;
         padding-top: 5px;
         padding-bottom: 5px;
@@ -15,7 +15,7 @@
         cursor: pointer;
     }
                 
-    .header__search > form > input{
+    .header .header__search > form > input{
         width: 500px;
         height: 30px;
         border: none;
@@ -26,25 +26,4 @@
         margin-bottom: 25px;
         margin-left: 200px;
         margin-top: 20px;
-    }
-
-    .header__login{
-        display: flex;
-        cursor: pointer;
-        margin-top: 20px;
-        margin-left: 20px;
-        margin-bottom: 25px;
-        margin-top: 20px;
-        font-style: italic;
-    }
-
-    .header__login > h3{
-        color: black;
-        font-weight: 300;
-    }
-
-    .right{
-        display: flex;
-        align-items: center;
-        height: 50px;
     }

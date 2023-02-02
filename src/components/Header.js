@@ -31,9 +31,10 @@ function Header({setSearch}) {
     navigate("/");
   }
   return (
-    <>
-      <header className="header">
-        <div className="right">
+    
+    <div className="header">
+      <header >
+        <div>
           <img
             className="header__logo"
             src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png"
@@ -48,17 +49,17 @@ function Header({setSearch}) {
             </form>
           </div>
         </div>
-        <div className="header__login">
-        <Link to="/add"><h3>Dodaj Film</h3></Link>
+        <div>
           {name===""?
-          <div>
-                <FiLogIn color="black" size="1.5em" />
-                <Link to="/signin"><h3 style={{paddingRight: "15px"}}>Zaloguj sie</h3></Link>
-                <Link to="/signup"><h3>Zarejestruj sie</h3></Link>
+                <div >
+                
+                <Link className="header__login" to="/signin">Zaloguj sie</Link>
+                <Link to="/signup">Zarejestruj sie</Link>
                 </div>
 
                 :
                 <div>
+                  <Link to="/add">Dodaj Film</Link>
                 <p>{name}</p>
                 <button onClick={logout}>Logout</button>
                 </div>
@@ -66,7 +67,7 @@ function Header({setSearch}) {
           
         </div>
       </header>
-    </>
+    </div>
   );
 }
 
