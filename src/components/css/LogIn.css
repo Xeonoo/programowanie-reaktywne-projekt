@@ -5,7 +5,7 @@
     font-family: monospace, sans-serif;
 }
 
-.LoginForm input, button {
+.LoginForm input, .LoginForm button {
     appearance: none;
     background: none;
     border: none;
@@ -33,7 +33,7 @@
     right: -5px;
     bottom: -5px;
     z-index: 1;
-    background-image: linear-gradient(to bottom right, #ffa500, #8000FF);
+    background-image: linear-gradient(to bottom right, #d1c9b0, #34460f);
 }
 
 .LoginForm form .form-inner {
@@ -87,11 +87,11 @@
     display: inline-block;
     padding: 10px 15px;
     border-radius: 8px;
-    background-image: linear-gradient(to right, #ffa500 0%, #fff 50%, #8000FF);
+    background-image: linear-gradient(to right, #d1c9b0 0%, #34460f 50%);
     background-size: 200%;
     background-position: 0%;
     transition: 0.4s;
-    color: #666;
+    color: #d1c9b0;
     font-weight: 700;
     cursor: pointer;
 }

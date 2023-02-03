@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-import './LogIn.css';
+import './css/LogIn.css';
 
 function LogIn() {
     const [details, setDetails] = useState({login:"", password:""});
@@ -41,7 +41,7 @@ function LogIn() {
                         <input type="password" name="password" id="password" onChange={e=>setDetails({...details, password: e.target.value})} value={details.password}/>
                     </div>
                     <input type="submit" value="LOGIN"/>
-                    <Link to="/signup" className="nav-link"> signup</Link>
+                    
                 </div>
             </form>
         </div>

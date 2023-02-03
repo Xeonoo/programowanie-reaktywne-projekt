@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { isExpired, decodeToken  } from "react-jwt";
 
+import "./css/Details.css"
+
 function Details() {
   const isNotLogged = isExpired(localStorage.getItem('token'))
   const isAdmin = isNotLogged ? false : decodeToken(localStorage.getItem('token')).isAdmin;
@@ -33,22 +35,13 @@ const navigate = useNavigate();
     })
 }, []);
   return (
-    <div className="part_content">
-      <div className="content__img">
-        <img
-          src={
-            movie.image
-          }
-          alt={
-            movie.title
-          }
-        />
-        {isAdmin ? <div><button className="DeleteButton" onClick={deleteVideo}>DELETE</button></div> : null}
+    <div className="details">
+      <div className="movie">
+        <img className="image" src={movie.image} alt={movie.title}/>
+        <h1 className="title">{movie.title}</h1>
+        {isAdmin ? <div><button className="button" onClick={deleteVideo}>DELETE</button></div> : null}
       </div>
-      <div className="content__description">
-        <h1>{movie.title}</h1>
-        <p>{movie.content}</p> 
-      </div>
+        <p className="content">{movie.content}</p>
     </div>
   );
 }

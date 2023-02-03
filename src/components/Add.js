@@ -28,20 +28,20 @@ function Add() {
     }
     
     return(
-        <div >
+        <div className="LoginForm">
             <form onSubmit={submitHandler}>
-                <div >
+                <div className="form-inner">
                     <h2>ADD VIDEO</h2>
                     {(error !== "") ? (<div>{error}</div>) : ""}
-                    <div >
+                    <div className="form-group">
                         <label htmlFor="title">title:</label>
                         <input type="text" name="title" id="title" onChange={e=>setDetails({...details, title: e.target.value})} value={details.title}/>
                     </div>
-                    <div >
+                    <div className="form-group">
                         <label htmlFor="image">image:</label>
                         <input type="text" name="image" id="image" onChange={e=>setDetails({...details, image: e.target.value})} value={details.image}/>
                     </div>
-                    <div >
+                    <div className="form-group">
                         <label htmlFor="content">content:</label>
                         <input type="text" name="content" id="content" onChange={e=>setDetails({...details, content: e.target.value})} value={details.content}/>
                     </div>

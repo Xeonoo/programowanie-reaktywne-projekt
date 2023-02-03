@@ -4,7 +4,7 @@ import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import Details from "./components/Details";
 import { isExpired } from "react-jwt";
-import React,{useState} from "react";
+import React from "react";
 import Add from "./components/Add";
 
 function App() {

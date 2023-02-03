@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-import './LogIn.css';
+import './css/LogIn.css';
 
 function SignUp() {
     const [details, setDetails] = useState({login:"", email:"", password:""});
@@ -25,7 +25,7 @@ function SignUp() {
         });
     }
     return(
-        <div className="RegisterForm">
+        <div className="LoginForm">
             <form onSubmit={submitHandler}>
                 <div className="form-inner">
                     <h2>Register</h2>
@@ -43,7 +43,6 @@ function SignUp() {
                         <input type="password" name="password" id="password" onChange={e=>setDetails({...details, password: e.target.value})} value={details.password}/>
                     </div>
                     <input type="submit" value="REGISTER"/>
-                    <Link to="/signin" className="nav-link"> signin</Link>
                 </div>
             </form>
         </div>

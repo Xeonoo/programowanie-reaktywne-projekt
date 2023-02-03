@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { isExpired, decodeToken  } from "react-jwt";
-import { FiLogIn } from "react-icons/fi";
-import "./Header.css";
+
+import "./css/Header.css";
 
 function Header({setSearch}) {
   const isNotLogged = isExpired(localStorage.getItem('token'))
@@ -33,40 +33,20 @@ function Header({setSearch}) {
   return (
     
     <div className="header">
-      <header >
-        <div>
-          <img
-            className="header__logo"
-            src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png"
-            alt="FilmWebLogo"
-          />
-          <div className="header__search">
-            <form>
-              <input onChange={e=>searchInput(e.target.value)}
-                type="text"
-                placeholder="Szukaj filmów i seriali!"
-              />
-            </form>
-          </div>
+      <img className="logo" src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" alt="FilmWebLogo"/>
+      <input className="search" onChange={e=>searchInput(e.target.value)} type="text" placeholder="Szukaj filmów i seriali!"/>
+      {name===""?
+        <div className="buttondiv">
+          <button className="button" onClick={()=>{navigate("/signin")}}>Zaloguj sie</button>
+          <button className="button" onClick={()=>{navigate("/signup")}}>Zarejestruj sie</button>
         </div>
-        <div>
-          {name===""?
-                <div >
-                
-                <Link className="header__login" to="/signin">Zaloguj sie</Link>
-                <Link to="/signup">Zarejestruj sie</Link>
-                </div>
-
-                :
-                <div>
-                  <Link to="/add">Dodaj Film</Link>
-                <p>{name}</p>
-                <button onClick={logout}>Logout</button>
-                </div>
-        }
-          
+      :
+        <div className="buttondiv">
+          <button className="button" onClick={()=>{navigate("/add")}}>Dodaj Film</button>
+          <span className="name">{name}</span>
+          <button className="button" onClick={logout}>Logout</button>
         </div>
-      </header>
+      }  
     </div>
   );
 }
